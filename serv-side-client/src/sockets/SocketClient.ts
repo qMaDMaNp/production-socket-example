@@ -17,7 +17,13 @@ class SocketClient {
             console.log('Client: Connection established');
 
             // Send a message to the server
-            this.socket.emit('message', 'Hello, server!');
+            setInterval(() => {
+                this.socket.emit('message', 'Hello, server!');
+            }, 3000);
+
+            setInterval(() => {
+                this.socket.emit('another-message', '1Hello1, server!');
+            }, 8000);
         });
 
         this.socket.on('connect_error', (e) => {
